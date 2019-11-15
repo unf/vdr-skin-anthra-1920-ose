@@ -1,0 +1,17 @@
+Index: b/Make.config
+===================================================================
+--- a/Make.config
++++ b/Make.config
+@@ -7,9 +7,9 @@
+ ###### The directory environment:
+ 
+ PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../vdr.pc))
+-LOCDIR = $(call PKGCFG,locdir)
+-VDRCONFDIR = $(call PKGCFG,configdir)
+-SKINDIR  = $(call PKGCFG,resdir)/plugins/text2skin/$(SKIN)
++LOCDIR = /usr/share/locale
++VDRCONFDIR = /var/lib/vdr
++SKINDIR  = /usr/share/vdr-skins/$(SKIN)
+ THEMESDIR = $(DESTDIR)$(VDRCONFDIR)/themes
+ TMPDIR ?= /tmp
+ 

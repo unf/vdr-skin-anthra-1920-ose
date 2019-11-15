@@ -1,0 +1,48 @@
+vdr-skin-anthra-1920-ose (0.0.5-0fnu0~focal) focal; urgency=high
+
+  * automatic rebuild
+
+ -- Frank Neumann <fnu@yavdr.org>  Fri, 15 Nov 2019 13:49:46 +0100
+
+vdr-skin-anthra-1920-ose (0.0.5-0fnu0~bionic) bionic; urgency=high
+
+  * bionic rebuild for ppa:fnu/main-fnu
+
+ -- Frank Neumann <fnu@yavdr.org>  Sun, 10 Dec 2017 20:17:24 +0100
+
+vdr-skin-anthra-1920-ose (0.0.5-0fnu0~zesty) zesty; urgency=medium
+
+  * zesty rebuild for ppa:fnu/main-fnu
+
+ -- Frank Neumann <fnu@yavdr.org>  Mon, 06 Feb 2017 13:24:22 +0100
+
+vdr-skin-anthra-1920-ose (0.0.5-0fnu0~xenial) xenial; urgency=high
+
+  * rebuild for xenial
+
+ -- Frank Neumann <fnu@yavdr.org>  Sun, 01 Jan 2017 21:02:35 +0100
+
+vdr-skin-anthra-1920-ose (0.0.5-0fnu0~trusty) trusty; urgency=high
+
+  * New version
+    thanks to tomas from vdr-portal.de
+  * matching package to older upstream version
+  * changes to debian packaging
+
+ -- Frank Neumann <fnu@yavdr.org>  Wed, 09 Apr 2014 18:04:32 +0200
+
+vdr-skin-anthra-1920-ose (0.3.3-1fnu0~trusty) trusty; urgency=high
+
+  * add increase_channelinfo_blink_freq.patch
+    to stablize display info
+
+ -- Frank Neumann <fnu@yavdr.org>  Thu, 20 Mar 2014 01:04:10 +0100
+
+vdr-skin-anthra-1920-ose (0.3.3-0fnu0~trusty) trusty; urgency=high
+
+  * Initial release
+  * Version for VDR 1.7.28+
+    thanks to tomas from vdr-portal.de
+  * Needs specific patched vdr-plugin-text2skin 
+
+ -- Frank Neumann <fnu@yavdr.org>  Wed, 17 Apr 2013 17:23:21 +0200
