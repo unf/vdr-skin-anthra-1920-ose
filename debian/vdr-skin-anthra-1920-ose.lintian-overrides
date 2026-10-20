@@ -1,0 +1,2 @@
+# anthra_conf is needed to build the skin, its README stays with it
+vdr-skin-anthra-1920-ose: package-contains-documentation-outside-usr-share-doc [usr/share/vdr-skin-anthra/anthra_1920_OSE/anthra_conf/*]

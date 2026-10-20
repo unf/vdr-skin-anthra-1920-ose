@@ -1,7 +1,23 @@
 #!/usr/bin/make -f
 
-
-#export DH_VERBOSE=1
+SKIN = anthra_1920_OSE
+B = debian/build
 
 %:
 	dh $@
+
+# Build the translations and the skin with the default options in a copy,
+# the skin is only validated here and built on the target system.
+override_dh_auto_build:
+	rm -rf $(B)
+	mkdir -p $(B)
+	tar -cf - --exclude=./debian --exclude=./.pc --exclude=./.git . | tar -xf - -C $(B)
+	rm -rf $(B)/$(SKIN).skin $(B)/locale
+	{ echo 'SHELL := /bin/bash'; cat debian/$(SKIN).conf; } > $(B)/Make.config
+	$(MAKE) -C $(B) --no-print-directory all
+	xmlstarlet val -q -e -r $(B)/text2skin-1.1.rng $(B)/$(SKIN).skin
+
+override_dh_auto_install override_dh_auto_test:
+
+override_dh_auto_clean:
+	rm -rf $(B)

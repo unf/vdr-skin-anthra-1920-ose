@@ -1,14 +1,19 @@
 Source: vdr-skin-anthra-1920-ose
-Section: misc
-Priority: extra
-Maintainer: Frank Neumann <fnu@yavdr.org>
-Build-Depends: debhelper (>= 9), pkg-config
-Standards-Version: 3.9.7
+Section: video
+Priority: optional
+Maintainer: Frank Neumann <fnu@vdr-portal.de>
+Build-Depends: debhelper-compat (= 13), gettext, xmlstarlet
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Homepage: http://www.anthra.de/anthra-skins/
 
 Package: vdr-skin-anthra-1920-ose
 Architecture: all
-Depends: vdr-plugin-text2skin (>= 1.3.2+git20120604)
-Description: Anthra Skin for VDR's text2skin plugin
+Multi-Arch: foreign
+Depends: vdr-plugin-text2skin, vdr-skin-anthra-common (>= 2026.10.20), ${misc:Depends}
+Description: anthra skin anthra_1920_OSE for the VDR text2skin plugin
+ Full HD (1920x1080) variant OSE of the anthra skin by Tomas Saxer
+ for the text2skin plugin of VDR.
  .
- Anthra Skin for VDR's text2skin plugin
-
+ The skin is built from its options in /etc/vdr/anthra/anthra_1920_OSE.conf,
+ see vdr-skin-anthra-update(8).

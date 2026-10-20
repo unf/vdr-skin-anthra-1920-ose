@@ -1,37 +1,39 @@
-Upstream Homepage:
-    http://www.anthra.de/anthra-skins/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: anthra skins
+Upstream-Contact: Tomas Saxer <tsaxer@gmx.de>
+Source: http://www.anthra.de/anthra-skins/
 
-Upstream Authors:
-    Tomas Saxer <tsaxer@gmx.de>
+Files: *
+Copyright: 2010-2019 Tomas Saxer <tsaxer@gmx.de>
+License: GPL-2+
 
-Debian Maintainers:
-    Holger Schvestka <hotzenplotz5@gmx.de>
-    Frank Neumann <fnu@yavdr.org>
+Files: anthra_conf/*
+Copyright: 2011 nvertigo, Tomas Saxer <tsaxer@gmx.de>
+License: GPL-2
 
-Copyright:
-    (C) 2010-2014 Tomas Saxer <tsaxer@gmx.de>
+Files: debian/*
+Copyright: 2011-2014 Holger Schvestka <hotzenplotz5@gmx.de>
+           2014-2026 Frank Neumann <fnu@vdr-portal.de>
+License: GPL-2+
 
-Copyright (Debian packaging):
-    (C) 2010-2012 Holger Schvestka
-    (C) 2012-2014 Frank Neumann
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in /usr/share/common-licenses/GPL-2.
 
-License:
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-    The complete text of the GNU General Public License can be found
-    in /usr/share/common-licenses/GPL-2 on most Debian systems.
-
-License (Debian packaging):
-    The Debian packaging is licensed under the GPL, version 2 or any
-    later version, see /usr/share/common-licenses/GPL-2.
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 2 as
+ published by the Free Software Foundation.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in /usr/share/common-licenses/GPL-2.
