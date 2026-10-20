@@ -1,0 +1,168 @@
+#    README for anthra-HD skin for text2skin
+#
+#    Copyright (C) 2010 - 2014   Tomas Saxer <tsaxer@gmx.de> 
+#
+#    This program is free software; you can redistribute it and/or modify it under the terms of 
+#    the GNU General Public License as published by the Free Software Foundation; either 
+#    version 2 of the License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+#    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+#    See the GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along with this program; 
+#    if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, 
+#    MA 02110, USA
+
+
+Latest version available at: http://anthra.de/anthra-skins/
+
+Description:
+
+	anthra_HD-skin is a dark, anthracite skin for Klaus Schmidingers VDR (http://www.tvdr.de/).
+
+	The resolution of the skin is 1920x1080 and it is not scalable.
+
+	anthra_HD-skins are designed to work with softdecoders like vdr-xine and xineliboutput - both preferred with vdpau.
+
+
+1. Requirements:
+
+	a. text2skin, latest GIT-Version:
+	
+		 git clone git://projects.vdr-developer.org/vdr-plugin-text2skin.git
+	
+		initially developed by Sascha Volkenandt - now it is a community maintained project
+		
+		text2skin should be compiled with
+		
+		IMAGELIB = graphicsmagick
+		DEVELOPMENT_FEATURES = 1
+		
+		both can be set in Makefile of text2skin
+	
+	b. VDRSymbols.ttf
+	
+		by Andreas Mair
+		
+		http://andreas.vdr-developer.org/fonts/download/vdrsymbols-ttf-20100612.tgz
+	
+	
+2. The *.po files for the translations of *Volume* and *Mute* are taken from
+	VDR-sources. Thanks a lot to all translators and especially to
+	Klaus Schmidinger for developing VDR !
+	
+3. Make.config settings:
+
+		To rebuild skinfile with changed settings run in /path/to/anthra_1920_FSE/
+		be aware, that gettext is installed!
+		
+		make clean all
+	
+		
+	1. VIDEOSIZE
+	
+		shows the videosize of the currently broadcasted event.
+		!!!only usable with current git-version or patch by NemoN@vdrportal!!!
+				
+	2. LOGOSLEFT or LOGOSRIGHT
+	   CHANNELLOGOSPATH 
+	
+		For German broadcasting corporations channellogos
+		provided by Christopher Reimer are available. 
+	
+		!!!Please note!!!
+		So-called anthralogos are exclusively destined for 
+		personal use in association with VDR.
+		!!!Copyright holder of the original logos are the broadcasting corporations!!!
+
+		Download:	http://creimer.net/channellogos/
+
+		Just unpack the newest logopackage in /var/lib/vdr 
+		
+		In Make.config set the CHANNELLOGOS-option  to "LOGOSLEFT = 1"
+		or "LOGOSRIGHT", CHANNELLOGOSPATH pointing to /var/lib/vdr/anthralogos	
+		and rebuild the skinfile.
+	
+		
+	3. SEPARATORLOGOS
+	    SEPARATORLOGOSPATH
+	   
+	     For group separators in channels.conf you can download a small package via
+	     
+	     wget http://anthra.de/anthra-skins/Separatorlogos.tar.gz
+	     
+	     Be aware that the string of your separator in channels.conf and the filename of
+	     the corresponding logofile must be identic as well as channelnames and channel-logos. 
+	   
+
+	5. MENULOGOS
+		
+		To have menulogos in mainmenu set "MENULOGOS = 1"
+		Currently there are only a few menulogos, they are still *work in progress* ;)
+		Look at anthra_conf/README for extended configuration
+		For menuitems with missed menulogos currently a VDR-Logo is shown.
+		
+		Be aware of copying 
+		anthra_1920_OSE/locale/YOUR-LANGUAGE-CODE/LC_MESSAGES/vdr-text2skin-anthra_1920_OSE.mo
+		to VDR's LOCALEDIR
+		or set correct PREFIX respectively LOCDIR in Make.config and run
+		
+		make install-i18n
+
+
+	6. EPGIMAGES
+	   EPGIMAGESPATH
+	   EPGIMAGESFORMAT
+	   
+		EPGIMAGES fetched e.g. by tvm2vdr-plugin can be displayed
+		set "EPGIMAGES = 1"
+		set EPGIMAGESPATH e.g. "EPGIMAGESPATH = \/etc\/vdr\/plugins\/tvm2vdr\/epgimages"
+		and choose "EPGIMAGESFORMAT = 1" if you have *.jpgs
+		
+		
+	7. RECORDINGIMAGES
+	   RECORDINGIMAGENAME
+	   
+	    After a recording is done, an existing, corresponding EPG-Image to the Title can be
+	    copied to the recording-directory by the following recording-hook:
+	   
+		########## example - recording.hook #######################################
+			after)
+			  # do here what ever you would like to do right AFTER
+			  # the recording $2 ENDED
+		
+			EPGIMAGESPATH = #e.g /etc/vdr/plugins/tvm2vdr/epgimages   !!! without escaping slashes !!!
+			EPGIMAGESFORMAT = #e.g. jpg
+			RECORDINGIMAGENAME = #e.g. thumbnail 
+			
+			EVENTID=`cat $2/info | sed -n -e 's/^E //p'| awk -F " " '{print $1 }'`
+
+			if [ -f $EPGIMAGESPATH/$EVENTID.jpg ]; then
+			  cp $EPGIMAGESPATH/$EVENTID.$EPGIMAGESFORMAT $2/$RECORDINGIMAGENAME.$EPGIMAGESFORMAT
+			fi
+		###############################################################
+	   	
+	8. TIMER-INFO_MAIN-MENU: shows (max) next three timers in mainmenu
+	   	   
+	   
+   10. SMALLMENUFONT = 1			: VDRSymbols Sans:Book@25
+	   DEFAULTMENUFONT = 1			: VDRSymbols Sans:Book@27
+	   LARGEMENUFONT = 1			: VDRSymbols Sans:Book@29
+	   
+   11. MENUGROUP-CENTER
+	    
+	    Alignment of day- and channel-separators in submenu. If you use the patches for VDR and epgsearch
+	    in the patches-directory of the skin, you should set MENUGROUP-CENTER = 1 
+	   
+   12. yaVDR = 1
+	   
+	   yaVDR-users need special entries in skinfile to have menulogos in yaVDR-menu.
+	   
+	     Take your choice.....and have fun ;)
+	     
+		
+
+If you encounter any bugs, problems, or have any issues,
+please don't hesitate to contact me or place a post at vdrportal.de
+even in English.

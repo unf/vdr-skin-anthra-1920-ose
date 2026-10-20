@@ -1,0 +1,12 @@
+diff -ruN vdr-1.7.24/menu.c vdr-1.7.24_patched/menu.c
+--- vdr-1.7.24/menu.c	2012-02-19 12:37:55.000000000 +0100
++++ vdr-1.7.24_patched/menu.c	2012-02-22 19:19:05.000000000 +0100
+@@ -355,7 +355,7 @@
+         buffer = cString::sprintf("%d\t%s", channel->Number(), channel->Name());
+      }
+   else
+-     buffer = cString::sprintf("---\t%s ----------------------------------------------------------------", channel->Name());
++     buffer = cString::sprintf("%s", channel->Name());
+   SetText(buffer);
+ }
+ 

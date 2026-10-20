@@ -1,0 +1,24 @@
+diff -ruN epgsearch/menu_main.c epgsearch_patched/menu_main.c
+--- epgsearch/menu_main.c	2012-02-22 19:23:47.000000000 +0100
++++ epgsearch_patched/menu_main.c	2012-02-22 19:27:50.000000000 +0100
+@@ -141,7 +141,7 @@
+ 			struct tm *t_lastevent = localtime_r(&lastEventDate, &tm_rLastEvent);
+ 			if (t_event->tm_mday != t_lastevent->tm_mday)
+ 			{
+-			  cString szSep = cString::sprintf("----------------------------------\t %s ----------------------------------------------------------------------------------------------", GETDATESTRING(Event));
++			  cString szSep = cString::sprintf("%s", GETDATESTRING(Event));
+ 			  cOsdItem* pSepItem = new cOsdItem(szSep);
+ 			  pSepItem->SetSelectable(false);
+ 			  Add(pSepItem);
+diff -ruN epgsearch/menu_whatson.c epgsearch_patched/menu_whatson.c
+--- epgsearch/menu_whatson.c	2012-02-22 19:23:47.000000000 +0100
++++ epgsearch_patched/menu_whatson.c	2012-02-22 19:26:03.000000000 +0100
+@@ -414,7 +414,7 @@
+       {
+ 	if (EPGSearchConfig.showChannelGroups && strlen(Channel->Name()))
+          {
+-	   cString szGroup = cString::sprintf("----------------------------------------\t %s ----------------------------------------------------------------------------------------------", Channel->Name());
++	   cString szGroup = cString::sprintf("%s", Channel->Name());
+             cOsdItem* pGroupItem = new cOsdItem(szGroup);
+             pGroupItem->SetSelectable(false);
+             Add(pGroupItem);

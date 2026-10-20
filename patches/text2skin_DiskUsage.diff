@@ -1,0 +1,71 @@
+diff -ruN text2skin/render.c text2skin_DU/render.c
+--- text2skin/render.c	2013-04-13 17:48:21.000000000 +0200
++++ text2skin_DU/render.c	2013-04-13 16:27:17.000000000 +0200
+@@ -16,6 +16,8 @@
+ #include <vdr/videodir.h>
+ #include <vdr/skinclassic.h>
+ 
++using std::string;
++
+ cText2SkinRender *cText2SkinRender::mRender = NULL;
+ 
+ cText2SkinRender::cText2SkinRender(cText2SkinLoader *Loader, cxDisplay::eType Display,
+@@ -854,6 +856,18 @@
+ 			VideoDiskSpace(&FreeMB, &UsedMB);
+ 			return (cxType)FreeMB+UsedMB;
+ 		}
++		
++#if VDRVERSNUM >= 10728
++	case tDiskUsage:	{
++			cVideoDiskUsage::ForceCheck();
++			string DiskUsage = string(cString::sprintf("%s", *cVideoDiskUsage::String()));
++			return DiskUsage;
++		}
++#endif
++
++	case tVdrVersion:	{
++			return VDRVERSION;
++		}
+ 
+ 	case tDateTime:      return TimeType(time(NULL), Token.Attrib.Text);
+ 
+diff -ruN text2skin/xml/string.c text2skin_DU/xml/string.c
+--- text2skin/xml/string.c	2013-04-13 17:48:21.000000000 +0200
++++ text2skin_DU/xml/string.c	2013-04-13 16:26:19.000000000 +0200
+@@ -4,7 +4,7 @@
+ #include "render.h"
+ 
+ static const char *Tokens[__COUNT_TOKEN__] = {
+-	"DateTime", "FreeDiskSpace", "UsedDiskSpace", "TotalDiskSpace", "VideoSizeWidth", "VideoSizeHeight", "AudioTrack", "AudioChannel",
++	"DateTime", "FreeDiskSpace", "UsedDiskSpace", "TotalDiskSpace", "DiskUsage", "VideoSizeWidth", "VideoSizeHeight", "AudioTrack", "AudioChannel",
+ 
+ 	// Channel Display
+ 	"ChannelNumber", "ChannelName", "ChannelShortName", "ChannelBouquet", "ChannelPortal",
+@@ -42,7 +42,7 @@
+ 	"ReplayIsLoop",
+ 
+ 	// Menu Page
+-	"MenuTitle", "MenuGroup", "IsMenuGroup", "MenuItem", "IsMenuItem", "MenuCurrent",
++	"VdrVersion", "MenuTitle", "MenuGroup", "IsMenuGroup", "MenuItem", "IsMenuItem", "MenuCurrent",
+ 	"IsMenuCurrent", "MenuText", "RecordingName", "RecordingFilename", "RecordingDateTime", "RecordingTitle",
+ 	"RecordingShortText", "RecordingDescription", "RecordingLanguageCode",
+ 	"FrontendSTR", "FrontendSNR", "FrontendHasLock", "FrontendHasSignal", "RecordingPriority", "RecordingLifetime",
+diff -ruN text2skin/xml/string.h text2skin_DU/xml/string.h
+--- text2skin/xml/string.h	2013-04-13 17:48:21.000000000 +0200
++++ text2skin_DU/xml/string.h	2013-04-13 16:26:05.000000000 +0200
+@@ -12,6 +12,7 @@
+ 	tFreeDiskSpace,
+ 	tUsedDiskSpace,
+ 	tTotalDiskSpace,
++	tDiskUsage,
+ 	tVideoSizeWidth,
+ 	tVideoSizeHeight,
+ 	tAudioTrack,
+@@ -137,6 +138,7 @@
+ 	tReplayIsLoop,
+ 
+ 	// Menu Page
++	tVdrVersion,
+ 	tMenuTitle,
+ 	tMenuGroup,
+ 	tIsMenuGroup,

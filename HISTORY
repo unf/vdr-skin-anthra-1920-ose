@@ -1,0 +1,19 @@
+text2skin-anthra_1920_OSE Revision History
+-------------------------------------------
+
+2014-03-23: Version 0.0.5
+- Some small fixes 
+- Adjustments for compatibility with VDR-2.x.x
+
+2013-10-27: Version 0.0.4
+- Added support for channellogos with ChannelIds
+
+2013-04-13: Version 0.0.3
+- Added DiskUsage and VDR-Version to mainmenu
+
+2012-03-04: Version 0.0.2
+- Fixed some coordinates in ChannelInfo
+- Added configuration for MenuGroup-alignment (left or center)
+
+2012-02-22: Initial release of Version 0.0.1
+- Based on anthra_1920_FSE with particulary new design and layout
