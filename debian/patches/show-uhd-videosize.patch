@@ -1,0 +1,21 @@
+Description: show the video size also for UHD
+ The channel info showed the video size only for heights up to 1080 lines,
+ UHD (3840x2160) showed nothing. All sizes except 1080 now show
+ WIDTHxHEIGHT, 1080 lines still show 1920x1080.
+Author: Frank Neumann <fnu@vdr-portal.de>
+Forwarded: not-needed
+Last-Update: 2026-10-23
+---
+Index: vdr-skin-anthra-1920-ose/xml/02_channelInfo.xml
+===================================================================
+--- vdr-skin-anthra-1920-ose.orig/xml/02_channelInfo.xml
++++ vdr-skin-anthra-1920-ose/xml/02_channelInfo.xml
+@@ -109,7 +109,7 @@
+ 		<text x1="1067" x2="1179" y1="988" y2="1010" align="center" condition="not({HasDolby})" color="TextLow" font="VDRSymbols Sans:Book@20">DOLBY</text>		
+ 		<text x1="1181" x2="1293" y1="988" y2="1010" align="center" condition="equal({AudioChannel},'stereo')" color="TextSmallButton" font="VDRSymbols Sans:Book@20">STEREO</text>
+ 		<text x1="1181" x2="1293" y1="988" y2="1010" align="center" condition="not(equal({AudioChannel},'stereo'))" color="TextLow" font="VDRSymbols Sans:Book@20">STEREO</text>
+-<!--VIDEOSIZE--><text x1="1295" x2="1444" y1="988" y2="1010" align="center" condition="lt({VideoSizeHeight},1080)" color="TextSmallButton" font="VDRSymbols Sans:Book@20">{VideoSizeWidth}x{VideoSizeHeight}</text>
++<!--VIDEOSIZE--><text x1="1295" x2="1444" y1="988" y2="1010" align="center" condition="not(equal({VideoSizeHeight},1080))" color="TextSmallButton" font="VDRSymbols Sans:Book@20">{VideoSizeWidth}x{VideoSizeHeight}</text>
+ <!--VIDEOSIZE--><text x1="1295" x2="1444" y1="988" y2="1010" align="center" condition="equal({VideoSizeHeight},1080)" color="TextSmallButton" font="VDRSymbols Sans:Book@20">1920x1080</text>		
+ 		<text x1="1446" x2="1558" y1="988" y2="1010" align="center"  condition="{IsEncrypted}" color="TextSmallButton" font="VDRSymbols Sans:Book@20">CRYPT</text>
+ 		<text x1="1446" x2="1558" y1="988" y2="1010" condition="not({IsEncrypted})" align="center"   color="TextSmallButton" font="VDRSymbols Sans:Book@20">FTA</text>		

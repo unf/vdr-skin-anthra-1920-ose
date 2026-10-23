@@ -1,3 +1,11 @@
+vdr-skin-anthra-1920-ose (0.0.5-2fnu0~trixie) trixie; urgency=medium
+
+  * Show the video size in the channel info also for UHD (3840x2160)
+  * contains following patches:
+    -show-uhd-videosize.patch
+
+ -- Frank Neumann <fnu@vdr-portal.de>  Fri, 23 Oct 2026 15:15:37 +0200
+
 vdr-skin-anthra-1920-ose (0.0.5-1fnu0~trixie) trixie; urgency=medium
 
   * Repackaged for Debian 13: debhelper 13, Standards-Version 4.7.2,
