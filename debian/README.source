@@ -1,0 +1,25 @@
+vdr-skin-anthra-1920-ose packaging
+==================================
+
+The anthra skins by Tomas Saxer (http://www.anthra.de/anthra-skins/) are
+packaged here for Debian. Upstream only provides tarballs, the repository
+follows the git-buildpackage layout:
+
+  debian/trixie   upstream source with the Debian packaging
+  upstream        the imported upstream tarballs
+  pristine-tar    data to recreate the orig tarballs
+
+The skin is not built at package build time. vdr-skin-anthra-update from
+https://github.com/unf/vdr-skin-anthra-common builds it on the VDR from
+the sources in /usr/share/vdr-skin-anthra/SKIN and the options in
+/etc/vdr/anthra/SKIN.conf. Changes to the skin go into the XML templates
+(xml*/) as patches in debian/patches, the prebuilt .skin of the tarball
+is not installed.
+
+Build with git-buildpackage:
+
+  gbp clone https://github.com/unf/vdr-skin-anthra-1920-ose.git
+  cd vdr-skin-anthra-1920-ose
+  gbp buildpackage
+
+ -- Frank Neumann <fnu@vdr-portal.de>
